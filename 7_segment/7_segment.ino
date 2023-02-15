@@ -12,7 +12,7 @@ void setup() {
 void loop() {
   affiche_nombre(val);
   val = (val + 1) % 100;
-  delay(300);
+  delay(1000);
 
 }
 
