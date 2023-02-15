@@ -11,16 +11,17 @@ void setup() {
 
 void loop() {
   affiche_chiffre(val);
-  val += 1;
-  if (val == 10){
-    val = 0;
-  }
+  val = (val%100)+1;
+
   delay(1000);
 }
 
 void affiche_chiffre(int n){
+  int unite = n%10;
+  int dizaine = n/10;
+  
   for (int i=0;i<7;i++){
-    digitalWrite(ser,tabChiffres[0][i]);
+    digitalWrite(ser,tabChiffres[dizaine][i]);
 
     digitalWrite(srcl,LOW);
     digitalWrite(srcl,HIGH);
@@ -30,7 +31,7 @@ void affiche_chiffre(int n){
   digitalWrite(srcl,HIGH);
   
   for (int i=0;i<7;i++){
-    digitalWrite(ser,tabChiffres[n][i]);
+    digitalWrite(ser,tabChiffres[unite][i]);
 
     digitalWrite(srcl,LOW);
     digitalWrite(srcl,HIGH);
